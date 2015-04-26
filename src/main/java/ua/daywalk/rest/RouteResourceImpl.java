@@ -24,7 +24,7 @@ public class RouteResourceImpl {
 
     @GET
     @Path("{id}")
-    public Point findById(@PathParam("id") Integer id) {
+    public Route findById(@PathParam("id") Integer id) {
         return Factory.getRouteDAO().getRouteWithId(id);
     }
 
