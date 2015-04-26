@@ -24,6 +24,7 @@ public class RouteResourceImpl {
 
     @GET
     @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
     public Route findById(@PathParam("id") Integer id) {
         return Factory.getRouteDAO().getRouteWithId(id);
     }

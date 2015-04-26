@@ -6,12 +6,12 @@ import java.util.List;
 
 
 @Entity(name = "dw_route")
-@SequenceGenerator(name = "point_generator", sequenceName = "point_id_seq", allocationSize = 1, initialValue = 1)
+@SequenceGenerator(name = "route_generator", sequenceName = "route_id_seq", allocationSize = 1, initialValue = 1)
 public class Route {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "point_generator")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "route_generator")
     private Integer id;
 
     @Column(name = "country")
@@ -79,7 +79,7 @@ public class Route {
 
     @Override
     public String toString() {
-        return "Point{" +
+        return "Route{" +
                 "id=" + id +
                 ", country='" + country + '\'' +
                 ", city='" + city + '\'' +

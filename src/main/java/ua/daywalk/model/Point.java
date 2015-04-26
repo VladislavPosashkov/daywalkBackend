@@ -111,6 +111,14 @@ public class Point {
         this.videoUrl = videoUrl;
     }
 
+    public Double getAngle() {
+        return angle;
+    }
+
+    public void setAngle(Double angle) {
+        this.angle = angle;
+    }
+
     @Override
     public String toString() {
         return "Route{" +

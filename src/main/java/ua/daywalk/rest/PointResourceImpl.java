@@ -21,6 +21,7 @@ public class PointResourceImpl {
 
     @GET
     @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
     public Point findById(@PathParam("id") Integer id) {
         return Factory.getPointDAO().getPointWithId(id);
     }

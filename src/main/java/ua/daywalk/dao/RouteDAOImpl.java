@@ -5,6 +5,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import ua.daywalk.model.Point;
 import ua.daywalk.model.Route;
+import ua.daywalk.model.Tour;
 import ua.daywalk.util.HibernateUtil;
 
 import java.util.ArrayList;
@@ -35,6 +36,25 @@ public class RouteDAOImpl {
             }
         }
     }
+//
+//    public Tour getTour(Integer routeId) throws HibernateException {
+//        Session session = null;
+//        try {
+//            session = HibernateUtil.getSessionFactory().openSession();
+//
+//            Query query = session.createQuery("from dw_route where id = :id").setParameter("id", id);
+//            Route route = (Route) query.uniqueResult();
+//            System.out.println(route.toString());
+//            return route;
+//        } catch (HibernateException ex) {
+//            LOGGER.warning(ex.getMessage());
+//        } finally {
+//            if (session != null && session.isOpen()) {
+//                session.close();
+//            }
+//        }
+//        return null;
+//    }
 
     public void updateRoute(Route route) throws HibernateException {
         Session session = null;
@@ -59,7 +79,9 @@ public class RouteDAOImpl {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             Query query = session.createQuery("from dw_route where id = :id").setParameter("id", id);
-            return (Route) query.uniqueResult();
+            Route route = (Route) query.uniqueResult();
+            System.out.println(route.toString());
+            return route;
         } catch (HibernateException ex) {
             LOGGER.warning(ex.getMessage());
         } finally {
