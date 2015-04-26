@@ -1,0 +1,26 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.username">ggfgamjqtlijkq</property>
+        <property name="hibernate.connection.password">gQ9TuikQrlqwc631YdhUYpsqxM</property>
+        <property name="hibernate.connection.url">
+            jdbc:postgresql://ec2-54-163-238-169.compute-1.amazonaws.com/d5urp3jfh7ir15
+        </property>
+
+        <property name="connection_pool_size">1</property>
+
+        <property name="hbm2ddl.auto">update</property>
+
+        <property name="show_sql">true</property>
+
+        <mapping class="ua.daywalk.model.Point"/>
+        <mapping class="ua.daywalk.model.Route"/>
+
+    </session-factory>
+</hibernate-configuration>
