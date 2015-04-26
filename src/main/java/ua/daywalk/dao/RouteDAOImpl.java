@@ -54,12 +54,12 @@ public class RouteDAOImpl {
         }
     }
 
-    public Point getRouteWithId(Integer id) throws HibernateException {
+    public Route getRouteWithId(Integer id) throws HibernateException {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             Query query = session.createQuery("from dw_route where id = :id").setParameter("id", id);
-            return (Point) query.uniqueResult();
+            return (Route) query.uniqueResult();
         } catch (HibernateException ex) {
             LOGGER.warning(ex.getMessage());
         } finally {
@@ -96,7 +96,7 @@ public class RouteDAOImpl {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            Query q = session.createQuery("delete Route where id = :id");
+            Query q = session.createQuery("delete dw_route where id = :id");
             q.setParameter("id", id);
             q.executeUpdate();
             session.getTransaction().commit();

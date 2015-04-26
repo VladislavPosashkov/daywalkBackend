@@ -79,7 +79,7 @@ public class PointDAOImpl {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            Query query = session.createQuery("from Point where id = :id").setParameter("id", id);
+            Query query = session.createQuery("from dw_point where id = :id").setParameter("id", id);
             return (Point) query.uniqueResult();
         } catch (HibernateException ex) {
             LOGGER.warning(ex.getMessage());
@@ -95,7 +95,7 @@ public class PointDAOImpl {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            Query query = session.createQuery("from Point where routeId = :id");
+            Query query = session.createQuery("from dw_point where routeId = :id");
             query.setParameter("id", routeId);
             return query.list();
         } catch (HibernateException ex) {
@@ -116,7 +116,7 @@ public class PointDAOImpl {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            Query q = session.createQuery("delete Point where id = :id");
+            Query q = session.createQuery("delete dw_point where id = :id");
             q.setParameter("id", id);
             q.executeUpdate();
             session.getTransaction().commit();
