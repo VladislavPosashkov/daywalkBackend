@@ -12,9 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-/**
- * Created by vladislavposashkov on 26.04.15.
- */
 public class RouteDAOImpl {
     private final static Logger LOGGER = Logger.getLogger(RouteDAOImpl.class.getSimpleName());
 
@@ -36,25 +33,29 @@ public class RouteDAOImpl {
             }
         }
     }
-//
-//    public Tour getTour(Integer routeId) throws HibernateException {
-//        Session session = null;
-//        try {
-//            session = HibernateUtil.getSessionFactory().openSession();
-//
-//            Query query = session.createQuery("from dw_route where id = :id").setParameter("id", id);
-//            Route route = (Route) query.uniqueResult();
-//            System.out.println(route.toString());
-//            return route;
-//        } catch (HibernateException ex) {
-//            LOGGER.warning(ex.getMessage());
-//        } finally {
-//            if (session != null && session.isOpen()) {
-//                session.close();
-//            }
-//        }
-//        return null;
-//    }
+
+    public Tour getTour(Integer routeId) throws HibernateException {
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Query queryRoute = session.createQuery("from dw_route where id = :id").setParameter("id", routeId);
+            Route route = (Route) queryRoute.uniqueResult();
+            Query queryPoints = session.createQuery("from dw_point where routeId = :id").setParameter("id", route.getId());
+            List<Point> points = queryPoints.list();
+            if (route == null || points == null) {
+                return null;
+            }
+            Tour tour = new Tour(route, points);
+            return tour;
+        } catch (HibernateException ex) {
+            LOGGER.warning(ex.getMessage());
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return null;
+    }
 
     public void updateRoute(Route route) throws HibernateException {
         Session session = null;

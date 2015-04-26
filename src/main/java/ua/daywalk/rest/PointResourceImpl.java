@@ -30,7 +30,6 @@ public class PointResourceImpl {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Point create(Point object) {
-
         Factory.getPointDAO().addPoint(object);
         return object;
     }
@@ -40,7 +39,6 @@ public class PointResourceImpl {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Point update(Point object) {
-
         Factory.getPointDAO().updatePoint(object);
         return object;
     }
@@ -49,7 +47,7 @@ public class PointResourceImpl {
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response delete(Integer id) {
+    public Response delete(@PathParam("id") Integer id) {
 
         Factory.getPointDAO().deletePoint(id);
         return Response.status(200).build();

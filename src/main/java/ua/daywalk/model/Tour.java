@@ -2,15 +2,32 @@ package ua.daywalk.model;
 
 import java.util.List;
 
-/**
- * Created by vladislavposashkov on 26.04.15.
- */
 public class Tour {
     private Route route;
-    private List<Point> pointList;
+    private List<Point> points;
 
-    public Tour(Route route, List<Point> pointList) {
+    public Tour() {
+    }
+
+    public Tour(Route route, List<Point> points) {
         this.route = route;
-        this.pointList = pointList;
+        this.points = points;
+    }
+
+
+    public Route getRoute() {
+        return route;
+    }
+
+    public void setRoute(Route route) {
+        this.route = route;
+    }
+
+    public List<Point> getPoints() {
+        return points;
+    }
+
+    public void setPoints(List<Point> pointss) {
+        this.points = points;
     }
 }

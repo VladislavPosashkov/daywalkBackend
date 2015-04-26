@@ -18,7 +18,7 @@ public class Point {
     private Double longitude;
 
     @Column(name = "route_id")
-    private String routeId;
+    private Integer routeId;
 
     @Column(name = "sequence_number")
     private Integer sequenceNumber;
@@ -63,11 +63,11 @@ public class Point {
         this.longitude = longitude;
     }
 
-    public String getRouteId() {
+    public Integer getRouteId() {
         return routeId;
     }
 
-    public void setRouteId(String routeId) {
+    public void setRouteId(Integer routeId) {
         this.routeId = routeId;
     }
 

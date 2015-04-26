@@ -2,7 +2,6 @@ package ua.daywalk.model;
 
 
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity(name = "dw_route")

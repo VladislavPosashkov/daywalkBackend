@@ -1,8 +1,8 @@
 package ua.daywalk.rest;
 
 import ua.daywalk.dao.Factory;
-import ua.daywalk.model.Point;
 import ua.daywalk.model.Route;
+import ua.daywalk.model.Tour;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -25,8 +25,8 @@ public class RouteResourceImpl {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Route findById(@PathParam("id") Integer id) {
-        return Factory.getRouteDAO().getRouteWithId(id);
+    public Tour findById(@PathParam("id") Integer id) {
+        return Factory.getRouteDAO().getTour(id);
     }
 
     @POST
@@ -52,7 +52,7 @@ public class RouteResourceImpl {
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response delete(Integer id) {
+    public Response delete(@PathParam("id") Integer id) {
 
         Factory.getRouteDAO().deleteRoute(id);
         return Response.status(200).build();

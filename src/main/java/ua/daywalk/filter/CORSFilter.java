@@ -1,0 +1,18 @@
+package ua.daywalk.filter;
+
+import com.sun.jersey.spi.container.ContainerRequest;
+import com.sun.jersey.spi.container.ContainerResponse;
+import com.sun.jersey.spi.container.ContainerResponseFilter;
+
+public class CORSFilter implements ContainerResponseFilter {
+
+
+
+    public ContainerResponse filter(ContainerRequest creq, ContainerResponse cresp) {
+        cresp.getHttpHeaders().putSingle("Access-Control-Allow-Origin", "*");
+        cresp.getHttpHeaders().putSingle("Access-Control-Allow-Credentials", "true");
+        cresp.getHttpHeaders().putSingle("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS, HEAD");
+        cresp.getHttpHeaders().putSingle("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, AUTHORIZATION, USER_APP_ID");
+        return cresp;
+    }
+}
