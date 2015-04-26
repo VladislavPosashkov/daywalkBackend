@@ -21,7 +21,7 @@ public class PointResourceImpl {
 
     @GET
     @Path("{id}")
-    public Point findById(Integer id) {
+    public Point findById(@PathParam("id") Integer id) {
         return Factory.getPointDAO().getPointWithId(id);
     }
 

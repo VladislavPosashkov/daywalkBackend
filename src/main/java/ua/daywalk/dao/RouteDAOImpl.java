@@ -58,7 +58,7 @@ public class RouteDAOImpl {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            Query query = session.createQuery("from Route where id = :id").setParameter("id", id);
+            Query query = session.createQuery("from dw_route where id = :id").setParameter("id", id);
             return (Point) query.uniqueResult();
         } catch (HibernateException ex) {
             LOGGER.warning(ex.getMessage());

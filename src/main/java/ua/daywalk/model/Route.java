@@ -2,6 +2,7 @@ package ua.daywalk.model;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity(name = "dw_route")
@@ -24,6 +25,7 @@ public class Route {
 
     @Column(name = "preview")
     private String preview;
+
 
     public Route() {
     }

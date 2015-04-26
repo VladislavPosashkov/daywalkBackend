@@ -38,6 +38,7 @@ public class Point {
     @Column(name = "angel")
     private Double angle;
 
+
     public Integer getId() {
         return id;
     }
